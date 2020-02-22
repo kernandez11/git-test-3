@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>LIST OF MESSAGES </h2>
+    <table class="table table-striped chat2">
+        <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Message</th>
+        </tr>
+        <!--<tr *ngFor="let message of messages | async">  -->
+            <tr *ngFor="let message of messages">
+                <td>{{ message.person }}</td>
+                <td>{{ message.to }}</td>
+                <td>{{ message.message }}</td>
+            
+        </tr> 
+    </table>
+</div>
+<!-- <app-message (addMessage)="addMessage($event)"></app-message>  --->
+<app-websocket></app-websocket>
+<app-message></app-message>
+

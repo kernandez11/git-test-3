@@ -1,0 +1,18 @@
+<div class="content">
+    <div class="container">
+ 
+            <table class="table table-striped">
+                <tr>
+                    <th>Conversations:</th>
+
+                </tr>
+                <tr *ngFor="let user of users | async"> 
+                    <th class="blog-title" ><a href="/display/{{user.id}}" class="blog-title">{{ user.userName }}</a></th>                
+                </tr>
+            </table>          
+            <hr>
+        
+
+        <app-websocket></app-websocket>
+    </div>
+</div>
