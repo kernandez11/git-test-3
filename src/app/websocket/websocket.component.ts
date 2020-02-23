@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Injectable } from '@angular/core';
-import { WebSocketAPI } from './WebSocketApi';
 import $ from 'jquery';
 import { LocalStorageService } from 'ngx-webstorage';
 import { MessagePayload } from '../message/message-payload';
+import { WebSocketAPI } from './WebSocketAPI';
 
 
 @Component({
