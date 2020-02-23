@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 //import 'rxjs/Observable';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Injectable, Injector } from '@angular/core';
-import { HttpError } from './HttpError';
 import {Router} from "@angular/router";
 import { tap, catchError } from "rxjs/operators";
 //import {Toaster} from "nw-style-guide/toasts";

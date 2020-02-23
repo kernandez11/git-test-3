@@ -23,7 +23,7 @@ import { DisplayRecipientsComponent } from './display-recipients/display-recipie
 import { DisplayMessagesComponent } from './display-messages/display-messages.component';
 import { WebsocketComponent } from './websocket/websocket.component';
 import { HttpErrorInterceptor } from './http-error-interceptor';
-import { WebSocketAPI } from './websocket/WebSocketApi';
+
 
 @NgModule({
   declarations: [
