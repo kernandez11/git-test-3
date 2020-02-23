@@ -5,7 +5,6 @@ import { AddPostService } from '../add-post.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisplayMessagesComponent } from '../display-messages/display-messages.component';
 import { MessageToSendPayload } from './message-to-send-payload';
-import { WebSocketAPI } from '../websocket/WebSocketApi';
 import { WebsocketComponent } from '../websocket/websocket.component';
 import { LocalStorageService } from 'ngx-webstorage';
 import $ from 'jquery';
@@ -29,7 +28,6 @@ export class MessageComponent implements OnInit {
   messageToSendPayload: MessageToSendPayload;
   message = new FormControl('');
   to = new FormControl('');
-  webSocketAPI: WebSocketAPI;
   username: string;
   
   //, private router: Router
