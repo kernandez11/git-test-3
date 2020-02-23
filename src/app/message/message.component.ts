@@ -5,7 +5,6 @@ import { AddPostService } from '../add-post.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisplayMessagesComponent } from '../display-messages/display-messages.component';
 import { MessageToSendPayload } from './message-to-send-payload';
-import { WebsocketComponent } from '../websocket/websocket.component';
 import { LocalStorageService } from 'ngx-webstorage';
 import $ from 'jquery';
 
