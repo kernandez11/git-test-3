@@ -4,7 +4,7 @@ import { PostPayload } from './post-payload';
 import { AddPostService } from '../add-post.service';
 import { Router } from '@angular/router';
 
-// let's see changes
+// let's see changes with edits
 
 @Component({
   selector: 'app-add-post',
