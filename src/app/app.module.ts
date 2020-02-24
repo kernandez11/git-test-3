@@ -16,13 +16,13 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { HttpClientInterceptor } from './http-client-interceptor';
-import { PostComponent } from './post/post.component';
 import { AuthGuard } from './auth.guard';
 import { MessageComponent } from './message/message.component';
 import { DisplayRecipientsComponent } from './display-recipients/display-recipients.component';
 import { DisplayMessagesComponent } from './display-messages/display-messages.component';
 import { WebsocketComponent } from './websocket/websocket.component';
 import { HttpErrorInterceptor } from './http-error-interceptor';
+
 
 
 @NgModule({
@@ -34,11 +34,11 @@ import { HttpErrorInterceptor } from './http-error-interceptor';
     RegisterSuccessComponent,
     HomeComponent,
     AddPostComponent,
-    PostComponent,
     MessageComponent,
     DisplayRecipientsComponent,
     DisplayMessagesComponent,
-    WebsocketComponent
+    WebsocketComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,6 @@ import { HttpErrorInterceptor } from './http-error-interceptor';
       {path: 'display', component: DisplayRecipientsComponent},
       {path: 'display/:id', component: DisplayMessagesComponent},
       {path: 'register', component: RegisterComponent},
-      {path: 'post/:id', component: PostComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register-success', component: RegisterSuccessComponent},
       {path: 'home', component: HomeComponent},

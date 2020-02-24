@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterPayload } from '../register-payload';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -16,13 +16,14 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   registerPayload: RegisterPayload;
   public errorMsg;
+  formSubmitted = false;
 
   constructor(private formBuilder:FormBuilder, private authService: AuthService, private router:Router) { 
     this.registerForm = this.formBuilder.group({
-       username: '', 
-       email: '',
-       password: '',
-       confirmPassword: ''
+       username: [null, [Validators.required]],
+       email: [null, [Validators.required, Validators.email]],
+       password: [null, [Validators.required]],
+       confirmPassword: [null, [Validators.required]],
     });
     this.registerPayload = {
     username: '',
@@ -36,6 +37,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
+    this.formSubmitted = true;
+
     this.registerPayload.username = this.registerForm.get('username').value;
     this.registerPayload.email = this.registerForm.get('email').value;
     this.registerPayload.password = this.registerForm.get('password').value;
@@ -45,7 +48,7 @@ export class RegisterComponent implements OnInit {
       console.log("register success");
       this.router.navigateByUrl('/register-success')
     }, error => {
-      this.errorMsg = "User already exists";
+      this.errorMsg = "User already exists or there was a problem with your form";
       $(".alert").addClass('visible').removeClass('invisible');
       console.log("register failed");
     });

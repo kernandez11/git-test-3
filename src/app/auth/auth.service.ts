@@ -4,17 +4,15 @@ import { RegisterPayload } from './register-payload';
 import { Observable } from 'rxjs';
 import { LoginPayload } from './login-payload';
 import { JwtAuthResponse } from './jwt-auth-response';
-import {map} from 'rxjs/operators';      
+import { map } from 'rxjs/operators';      
 import { LocalStorageService } from 'ngx-webstorage';
 import { throwError } from 'rxjs';
 import { tap, catchError } from "rxjs/operators";
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  //private url = 'http://localhost:8080/api/auth/';
   private url = 'https://chat-official-maryn.herokuapp.com/api/auth/';
 
 

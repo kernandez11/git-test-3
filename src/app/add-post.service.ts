@@ -26,27 +26,14 @@ export class AddPostService {
    }
 
    addPost(postPayload: PostPayload){
-     //return this.httpClient.post('http://localhost:8080/api/posts/new-post', postPayload);  
      return this.httpClient.post('https://chat-official-maryn.herokuapp.com/api/posts/new-post', postPayload); 
 
   
    }
 
-  //  addMessage(messagePayload: MessagePayload): Observable<MessagePayload>{
-  //   return this.httpClient.post<MessagePayload>('http://localhost:8080/api/posts/message', messagePayload)
-  //              .pipe(
-  //                tap(() => { 
-  //                   this._refreshNeeded$.next();
-  //                })
-  //              );  
-  // }
-
   addMessage(messagePayload: MessageToSendPayload): Observable<MessageToSendPayload>{
 
-    //return this.httpClient.post<MessageToSendPayload>('http://localhost:8080/api/posts/message', messagePayload)
     return this.httpClient.post<MessageToSendPayload>('https://chat-official-maryn.herokuapp.com/api/posts/message', messagePayload)
-
-
                .pipe(
                  tap(() => { 
                     this._refreshNeeded$.next();
@@ -65,13 +52,11 @@ export class AddPostService {
   }
 
    getPost(permaLink: Number):Observable<PostPayload>{
-     //return this.httpClient.get<PostPayload> ('http://localhost:8080/api/posts/get/' + permaLink);
      return this.httpClient.get<PostPayload> ('https://chat-official-maryn.herokuapp.com/api/posts/get/' + permaLink);
 
    }
 
    getAllUsers(): Observable<Array<UserPayload>>{
-    //return this.httpClient.get<Array<UserPayload>>('http://localhost:8080/api/posts/display-recipients');
     return this.httpClient.get<Array<UserPayload>>('https://chat-official-maryn.herokuapp.com/api/posts/display-recipients');
 
  

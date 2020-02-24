@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         console.log("login successful");
         this.router.navigateByUrl('/home');
       } else {
-        console.log("Login failed AAAAAAAAAAAAAAAA");  
+        console.log("Login failed");  
       }
     }, error => {//this.errorMsg = error;
                  this.errorMsg = "bad credentials";

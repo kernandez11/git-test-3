@@ -2,31 +2,28 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { WebsocketComponent } from './websocket.component';
 import { LocalStorageService } from 'ngx-webstorage';
-import { Injectable } from '@angular/core';
 import { MessagePayload } from '../message/message-payload';
 import $ from 'jquery';
 
 
-
 export class WebSocketAPI {
     //webSocketEndPoint: string = 'http://localhost:8080/ws';
-    webSocketEndPoint: string = 'https://chat-official-maryn.herokuapp.com/ws';
 
+    webSocketEndPoint: string = 'https://chat-official-maryn.herokuapp.com/ws';
+   
     topic: string = "/topic/greetings";
     stompClient: any;
     userSub: string;
     messagePayload: MessagePayload;
     //localStorageService: LocalStorageService;
     user: string;
-    
-    websocketComponent: WebsocketComponent;
-    
+
+
+    websocketComponent: WebsocketComponent;    
     constructor(websocketComponent: WebsocketComponent,
         private localStorageService: LocalStorageService){
 
-        //this.localStorageService = localStorageService;    
         this.websocketComponent = websocketComponent;
-
         this.messagePayload = {
             person: '',
             message: '',
@@ -38,6 +35,12 @@ export class WebSocketAPI {
         console.log("Initialize WebSocket Connection " + this.user);
         let ws = new SockJS(this.webSocketEndPoint);
         console.log("This is SockJS " + ws);
+        $(".alert").addClass('invisible').removeClass('visible');
+
+        // this.websocketComponent.websocketMsgError = 'error';
+        //sthis.websocketComponent.websocketMsgError = 'Error occured, try to connect again';
+        
+        
 
         this.userSub = "/queue/" + this.user;
         this.stompClient = Stomp.over(ws);
@@ -52,7 +55,7 @@ export class WebSocketAPI {
             });
             //_this.stompClient.reconnect_delay = 2000;
         }, this.errorCallBack);
-    };
+    }
 
     _disconnect() {
         if (this.stompClient !== null) {
@@ -64,7 +67,10 @@ export class WebSocketAPI {
     // on error, schedule a reconnection attempt
     errorCallBack(error) {
         console.log("errorCallBack -> " + error)
-        setTimeout(() => {
+        $(".alert").addClass('visible').removeClass('invisible');
+        $(".alert").html('Error occured, try to connect again');
+        //this.websocketMsgError = 'Error occured, try to connect again';
+        setTimeout(() => { 
             this._connect();
         }, 5000);
     }

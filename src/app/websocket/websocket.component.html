@@ -5,40 +5,46 @@
   <div id="main-content" class="container">
   
       <div class="row">
-          <div class="col-md-12">
-             {{ greeting }}
-          </div>
+        <!--<div class="alert alert-danger invisible" [appWebsocket] role="alert">
+          </div>  --->
+
+
+        
       </div>
       
     <div class="row">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
 
+            <div class="alert alert-danger invisible" role="alert">  
+            </div>
+         
+
+        <div class="col-md-5">
+            <form class="form-inline">
+                <div class="form-group">              
                     <label for="connect">WebSocket connection:</label>
-                    <button (click)="connect($event)" class="connect btn btn-default" type="submit">Connect</button>
-             <button (click)="disconnect($event)" class="disconnect btn btn-default" type="submit" disabled="disabled">Disconnect
+                    <button (click)="connect($event)" [disabled]="hide" class="connect btn btn-primary" type="submit">Connect</button>
+               <button (click)="disconnect($event)" [disabled]="!hide" class="disconnect btn btn-primary" type="submit" disabled="disabled">Disconnect
             <!--   <button (click)="disconnect()" class="disbl btn btn-default" type="submit" [disabled]="clicked">Disconnect-->
                     </button>
                 </div>
             </form>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <form class="form-inline">
                 <div class="form-group">
                     <label for="name">New Message: </label>
                     <input type="text" [(ngModel)]="name" class="form-control" name="name"> <br>
                 </div>
-                <button (click)="sendMessage()" class="send btn btn-default" type="submit" disabled="disabled">Send</button>
+                <button (click)="sendMessage()" [disabled]="!hide" class="send btn btn-primary" type="submit" disabled="disabled">Send</button>
             </form>
         </div>
+    
   
        <!--<div class="chat"> <p> Here should be append {{ greeting }}</p> </div>  -->
 
        <table class="table table-striped chat">
         <tr>
             <th>From</th>
-            <th>To</th>
             <th>Message</th>
         </tr>
         <!--<tr *ngFor="let message of messages | async">  -->
